@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace就是接口类-->
+<mapper namespace="com.cheer.mybatis.Dao.EmpMapper">
+    <!--    id是接口的方法名-->
+    <select id="getEmp" resultType="com.cheer.mybatis.model.Emp">
+        select * from emp where empno = #{empno}
+    </select>
+    
+    <insert id="insert">
+        insert into emp values(#{empno},#{ename},#{job},#{mgr},#{hiredate},#{sal},#{com},#{deptno})
+    </insert>
+
+    <delete id="delete">
+        delete from emp where empno=#{empno}
+    </delete>
+
+    <update id="upDate" parameterType="com.cheer.mybatis.model.Emp">
+        update emp set empno=#{empno},ename=#{ename},job=#{job},mgr=#{mgr},hiredate=#{hiredate},sal=#{sal},com=#{com},deptno=#{deptno} where empno=#{empno}
+    </update>
+</mapper>
